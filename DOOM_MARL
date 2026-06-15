@@ -1,0 +1,137 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "47a5ddce",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-06-15T15:16:34.079443Z",
+     "iopub.status.busy": "2026-06-15T15:16:34.079185Z",
+     "iopub.status.idle": "2026-06-15T15:16:44.552671Z",
+     "shell.execute_reply": "2026-06-15T15:16:44.551684Z"
+    },
+    "papermill": {
+     "duration": 10.478334,
+     "end_time": "2026-06-15T15:16:44.554531+00:00",
+     "exception": false,
+     "start_time": "2026-06-15T15:16:34.076197+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cloning into 'OpenAI-Gym-Doom-AI-Reinforcement-Learning'...\r\n",
+      "remote: Enumerating objects: 38, done.\u001b[K\r\n",
+      "remote: Counting objects: 100% (22/22), done.\u001b[K\r\n",
+      "remote: Compressing objects: 100% (19/19), done.\u001b[K\r\n",
+      "remote: Total 38 (delta 6), reused 17 (delta 3), pack-reused 16 (from 1)\u001b[K\r\n",
+      "Receiving objects: 100% (38/38), 16.61 KiB | 5.54 MiB/s, done.\r\n",
+      "Resolving deltas: 100% (10/10), done.\r\n",
+      "/kaggle/working/OpenAI-Gym-Doom-AI-Reinforcement-Learning\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.8/1.8 MB\u001b[0m \u001b[31m21.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[?25h"
+     ]
+    }
+   ],
+   "source": [
+    "!git clone https://github.com/stabgan/OpenAI-Gym-Doom-AI-Reinforcement-Learning.git\n",
+    "%cd OpenAI-Gym-Doom-AI-Reinforcement-Learning\n",
+    "\n",
+    "!pip install -q --upgrade pip\n",
+    "!pip install -q torch numpy gymnasium pillow vizdoom imageio"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "bdbece33",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-06-15T15:16:44.558572Z",
+     "iopub.status.busy": "2026-06-15T15:16:44.558310Z",
+     "iopub.status.idle": "2026-06-15T15:16:45.139504Z",
+     "shell.execute_reply": "2026-06-15T15:16:45.138399Z"
+    },
+    "papermill": {
+     "duration": 0.585547,
+     "end_time": "2026-06-15T15:16:45.141537+00:00",
+     "exception": false,
+     "start_time": "2026-06-15T15:16:44.555990+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Environment working!\n",
+      "<class 'dict'>\n",
+      "Discrete(4)\n"
+     ]
+    }
+   ],
+   "source": [
+    "import gymnasium as gym\n",
+    "from vizdoom import gymnasium_wrapper\n",
+    "\n",
+    "env = gym.make(\"VizdoomBasic-v1\", render_mode=\"rgb_array\", max_buttons_pressed=1)\n",
+    "obs, info = env.reset()\n",
+    "\n",
+    "print(\"Environment working!\")\n",
+    "print(type(obs))\n",
+    "print(env.action_space)\n",
+    "\n",
+    "env.close()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kaggle": {
+   "accelerator": "none",
+   "dataSources": [],
+   "dockerImageVersionId": 28755,
+   "isGpuEnabled": false,
+   "isInternetEnabled": false,
+   "language": "python",
+   "sourceType": "notebook"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.13"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 13.891975,
+   "end_time": "2026-06-15T15:16:45.561885+00:00",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "__notebook__.ipynb",
+   "output_path": "__notebook__.ipynb",
+   "parameters": {},
+   "start_time": "2026-06-15T15:16:31.669910+00:00",
+   "version": "2.7.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
